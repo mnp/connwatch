@@ -10,9 +10,11 @@ Yes, it does, but it only shows connections in progress.  Transients, for exampl
 
 It just ties into the connect(2) system call, writing info such as the caller's pid, destination address and family to readers of /dev/connwatch.  If there is a better way to do this, I'm all ears.
 
-**How about SystemTap?**
+**How about SystemTap? And nethogs? **
 
-To be investigated.  It looks heavy weight and general.
+To be investigated.  System looks heavy weight and general.  
+
+Nethogs looks like it gathers stats by periodic polling of /proc/*/net/netstat or something similar, which will catch the persistent, heavy traffickers but not the quick open and close, one packet jobs.
 
 **Then what are all the scripty bits for?**
 

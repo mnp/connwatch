@@ -122,8 +122,6 @@ static int device_open(struct inode *sip, struct file *sfp)
         return -EBUSY;
 
     Device_Open++;
-    //    sprintf(msg, "ready\n");
-    // msg_Ptr = msg;
     try_module_get(THIS_MODULE);
     
     return SUCCESS;
