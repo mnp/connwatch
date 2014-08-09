@@ -1,0 +1,15 @@
+#!/bin/bash
+
+PATH=/bin:/usr/bin:/sbin
+
+insmod connwatch.ko
+
+major=$(grep connwatch /proc/devices | cut -d' ' -f1)
+if [ -z $major ]; then
+   echo the connwatch module is not loaded
+   exit 1
+fi
+
+rm -f /dev/connwatch
+mknod /dev/connwatch c $major 0
+
